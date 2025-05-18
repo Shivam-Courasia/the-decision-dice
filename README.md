@@ -2,7 +2,9 @@
 Scenario:
 Groups of friends, roommates, or coworkers often waste time deciding simple things — "Where should we go out?", "Who’s doing dishes tonight?", "Which show should we binge?"
 
-DiceyDecisions solves this with gamified voting, randomness-based tiebreakers, and dramatic reveal mechanics. Users create decision rooms, submit options, vote secretly, and let dice, spinners, or coin flips break the tie when needed.
+DiceyDecisions solves this with gamified voting, randomness-based tiebreakers, and dramatic reveal mechanics. Users create decision rooms, submit options, vote secretly, and let dice, spinners, or coin flips break the tie when needed
+
+Project Deployed Link :-[website_Link](https://the-decision-dice.lovable.app/).
 
 # Requirements :-
 
