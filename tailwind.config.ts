@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,22 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Game-themed colors
+				dice: {
+					DEFAULT: '#8B5CF6', // Purple
+					secondary: '#D946EF', // Magenta Pink
+					border: '#E5DEFF', // Soft Purple
+				},
+				spinner: {
+					DEFAULT: '#F97316', // Bright Orange
+					secondary: '#FEC6A1', // Soft Orange
+					border: '#FDE1D3', // Soft Peach
+				},
+				coin: {
+					DEFAULT: '#0EA5E9', // Ocean Blue
+					secondary: '#D3E4FD', // Soft Blue
+					border: '#C8C8C9', // Light Gray
 				}
 			},
 			borderRadius: {
@@ -84,11 +101,37 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'flip': {
+					'0%, 100%': { transform: 'rotateY(0deg)' },
+					'50%': { transform: 'rotateY(180deg)' }
+				},
+				'bounce-dice': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-20px) rotate(180deg)' }
+				},
+				'fall-in': {
+					'0%': { transform: 'translateY(-100px)', opacity: '0' },
+					'60%': { transform: 'translateY(10px)', opacity: '1' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'scale-up': {
+					'0%': { transform: 'scale(0.5)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'spin-slow': 'spin-slow 2s ease-in-out infinite',
+				'flip': 'flip 1s ease-in-out',
+				'bounce-dice': 'bounce-dice 1s ease-in-out',
+				'fall-in': 'fall-in 0.6s ease-out',
+				'scale-up': 'scale-up 0.3s ease-out'
 			}
 		}
 	},
