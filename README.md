@@ -4,7 +4,7 @@ Groups of friends, roommates, or coworkers often waste time deciding simple thin
 
 DiceyDecisions solves this with gamified voting, randomness-based tiebreakers, and dramatic reveal mechanics. Users create decision rooms, submit options, vote secretly, and let dice, spinners, or coin flips break the tie when needed
 
-Project Deployed Link :-[website_Link](https://the-decision-dice.lovable.app/).
+Project Deployed Link :-[https://the-decision-dice.vercel.app/](https://the-decision-dice.vercel.app/).
 
 # Requirements :-
 
