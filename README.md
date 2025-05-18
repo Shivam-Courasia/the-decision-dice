@@ -1,73 +1,87 @@
-# Welcome to your Lovable project
+#  DiceyDecisions – Gamified Decision-Maker for Friend Groups
+Scenario:
+Groups of friends, roommates, or coworkers often waste time deciding simple things — "Where should we go out?", "Who’s doing dishes tonight?", "Which show should we binge?"
 
-## Project info
+DiceyDecisions solves this with gamified voting, randomness-based tiebreakers, and dramatic reveal mechanics. Users create decision rooms, submit options, vote secretly, and let dice, spinners, or coin flips break the tie when needed.
 
-**URL**: https://lovable.dev/projects/8f780e19-922b-4f9c-a624-3b79068e69ba
+# Requirements :-
 
-## How can I edit this code?
+# 🎯 Objective:
+Build a secure, fullstack application where users can:
 
-There are several ways of editing your application.
+Create decision rooms
+Invite friends (via room code or link)
+Submit and vote on options anonymously
+View live vote results
+Resolve ties using random game mechanics (dice, spinner, coin)
+Track past decisions with timestamps
+# 👥 User Role: user
+All users log in with an account. Auth is required to access or create decision rooms.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/8f780e19-922b-4f9c-a624-3b79068e69ba) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/8f780e19-922b-4f9c-a624-3b79068e69ba) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# 🔐 Authentication & Authorization:
+Secure login/signup via email
+Users can:
+Only access rooms they’ve joined or created
+Only vote once per decision
+Only view results after voting is closed
+Room creators can:
+Close voting
+Trigger tiebreaker
+Delete room
+# 🧱 Core Functional Features:
+1. Create a Decision Room
+Form fields:
+Room Title (e.g., “Dinner Spot?”)
+Description (optional)
+Max participants (optional)
+Room creator receives:
+Room code
+Shareable invite link
+Room stored with:
+creatorId, createdAt, isOpen: true/false
+2. Join a Room
+Users can join via:
+Invite link
+Entering the room code manually
+On join:
+User is added to the room’s participant list
+They see all submitted options (but not votes)
+3. Submit Decision Options
+Every participant can submit 1 or more options:
+Text-based (e.g., “Dominos”, “Subway”, “Cook at home”)
+Each option is stored with:
+roomId, submittedBy, createdAt
+Editing allowed until voting opens
+4. Vote Anonymously
+Once creator opens voting:
+Options appear in randomized order
+Each participant votes once
+Votes are stored anonymously
+Users cannot see vote counts until voting ends
+5. Reveal Results + Handle Ties
+Once all votes are in or voting is closed manually:
+Results are revealed
+If there's a tie:
+Creator chooses a tiebreaker:
+🎲 Dice Roll
+🎡 Spinner
+🪙 Coin Flip
+Random winner is selected from tied options
+Animation plays out for chosen method before final result is shown
+6. Past Decisions View
+Shows list of rooms the user was part of
+Each room entry shows:
+Title
+Date/time resolved
+Final chosen option
+Tiebreaker used (if any)
+7. UI/UX Enhancements (Mandatory)
+Real-time feeling vote reveal (optional polling every 3–5 sec)
+Fun animations for dice roll, spinner, and coin flip
+Colorful, game-show-style decision screen
+Toasts for key state changes (e.g., “Voting closed!”, “It’s a tie!”)
+# 🧪 Additional Notes:
+Users can’t vote on their own option more than once
+Rooms should automatically close after 30 mins of inactivity (bonus logic)
+Spinners/dice should use fair randomness (can be mocked visually but truly random under the hood)
+You may mock the real-time effect without sockets (polling is acceptable)
